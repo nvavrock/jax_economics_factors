@@ -50,3 +50,28 @@ CREATE TABLE state_age_pop (
     data_vintage INT NOT NULL,
     UNIQUE (state_fips, age_group, data_vintage)
 );
+
+### 2. City Population (`city_pop`)
+
+This table stores the total population count for each city or place.
+
+| Column Name | Data Type | Description |
+| :--- | :--- | :--- |
+| **id** | `SERIAL PRIMARY KEY` | Unique identifier. |
+| **state_fips** | `CHAR(2)` | State FIPS code. |
+| **place_fips** | `CHAR(5)` | Place FIPS code (Unique city identifier). |
+| **city_name** | `VARCHAR(100)` | Name of the city/place. |
+| **population** | `INT` | The estimated total population count. |
+| **data_vintage** | `INT` | The year the estimate is for (e.g., 2024). |
+
+#### Example SQL for Table Creation:
+```sql
+CREATE TABLE city_pop (
+    id SERIAL PRIMARY KEY,
+    state_fips CHAR(2) NOT NULL,
+    place_fips CHAR(5) NOT NULL,
+    city_name VARCHAR(100) NOT NULL,
+    population INT NOT NULL,
+    data_vintage INT NOT NULL,
+    UNIQUE (state_fips, place_fips, data_vintage
+    );
