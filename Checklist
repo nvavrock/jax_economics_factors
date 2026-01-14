@@ -1,0 +1,174 @@
+✅ Jacksonville Household Economic Stress App
+Phase 1 — Foundation Checklist
+
+We do not skip steps.
+We do not optimize early.
+
+☑️ CHECKLIST 1: PostgreSQL Ready
+
+Goal: You can store, retrieve, and trust your data.
+
+ PostgreSQL installed and running
+
+ Database created: jacksonville_econ
+
+ Can connect via:
+
+ psql or
+
+ DBeaver / pgAdmin
+
+ Tables created:
+
+ econ_raw
+
+ econ_metrics
+
+ household_stress_index
+
+ agent_summaries
+
+ You can run:
+
+SELECT * FROM econ_raw;
+
+
+📌 Stop here until all boxes are checked.
+
+☑️ CHECKLIST 2: R → PostgreSQL Connection
+
+Goal: R can write to and read from Postgres.
+
+ Install R packages:
+
+DBI
+
+RPostgres
+
+tidycensus
+
+tidyverse
+
+ Create a DB connection in R
+
+ Test insert into econ_raw
+
+ Test select from econ_raw
+
+If this fails, nothing else matters yet.
+
+☑️ CHECKLIST 3: ACS Data Ingestion (Rent & Income)
+
+Goal: Get real Jacksonville data into Postgres.
+
+ Register Census API key
+
+ Pull ACS data for:
+
+Duval
+
+Clay
+
+Nassau
+
+St. Johns
+
+ Variables:
+
+Median rent
+
+Median household income
+
+Number of households
+
+ Insert raw values into econ_raw
+
+📌 Raw means no math yet.
+
+☑️ CHECKLIST 4: Metric Calculation (Rent Burden)
+
+Goal: Turn raw data into a defensible metric.
+
+ Calculate rent-to-income ratio per county
+
+ Apply household-weighted metro aggregation
+
+ Store result in econ_metrics
+
+ Confirm values look sane (no negatives, no 10x spikes)
+
+☑️ CHECKLIST 5: Stress Index (v1)
+
+Goal: Produce ONE number per month.
+
+ Normalize metric (z-score or percentile)
+
+ Apply weight (35%)
+
+ Compute stress score
+
+ Assign stress level:
+
+Low
+
+Moderate
+
+High
+
+Severe
+
+ Insert into household_stress_index
+
+☑️ CHECKLIST 6: First Agent Run (No UI)
+
+Goal: Generate a human explanation.
+
+ Pull latest stress score from Postgres
+
+ Pull last month’s score
+
+ Build structured input
+
+ Generate explanation with LLM
+
+ Save output in agent_summaries
+
+📌 If this works, you have an agentic system.
+
+☑️ CHECKLIST 7: Minimal Shiny UI
+
+Goal: See it working.
+
+ Line chart: stress score over time
+
+ Text block: agent summary
+
+ Dropdown: date selection (optional)
+
+No filters. No polish.
+
+🧠 How to Use This Checklist
+
+Complete one checklist at a time
+
+Do not move forward until current checklist is fully checked
+
+If something breaks:
+
+Roll back
+
+Fix
+
+Continue
+
+This is how production systems are built.
+
+What I’ll do next (you choose)
+
+Reply with one of these:
+
+“Checklist 1 — help me verify Postgres”
+
+“Checklist 2 — show me the R connection code”
+
+“Checklist 3 — pull ACS data step by step”

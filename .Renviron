@@ -1,0 +1,6 @@
+CENSUS_DATA_API=80f0d21a52b7f2f437438dee2106b4c5eb4529b0
+DB_HOST="localhost"
+DB_NAME="postgres"
+DB_USER="postgres"
+DB_PASS="deepesT1!"
+DB_PORT=5432
