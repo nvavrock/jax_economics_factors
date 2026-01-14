@@ -1,174 +1,52 @@
-✅ Jacksonville Household Economic Stress App
-Phase 1 — Foundation Checklist
+📊 Jacksonville Household Economic Stress App
+Project Status & Remaining Milestones
+Current Progress: [PAUSED]
+Database: PostgreSQL postgres is live with all 4 schema tables created.
 
-We do not skip steps.
-We do not optimize early.
+Connection: R is successfully talking to Postgres via DBI/odbc.
 
-☑️ CHECKLIST 1: PostgreSQL Ready
+Security: Credentials moved to .Renviron for safety.
 
-Goal: You can store, retrieve, and trust your data.
+Stuck at: Finalizing the jax_raw data pull from the Census API.
 
- PostgreSQL installed and running
+PHASE 1: THE REMAINING FOUNDATION
+Goal: Get the data into the database.
 
- Database created: jacksonville_econ
+[ ] Fix Census Pull: Ensure jax_raw exists in the R Environment.
 
- Can connect via:
+[ ] Clean & Format: Rename columns to variable, value, region, and date.
 
- psql or
+[ ] Database Write: Execute dbWriteTable(con, "econ_raw", formatted_data, append = TRUE).
 
- DBeaver / pgAdmin
+[ ] Verification: Confirm data is visible in the CLI via SELECT * FROM econ_raw;.
 
- Tables created:
+PHASE 2: CALCULATED METRICS (The Logic)
+Goal: Turn raw numbers into "Stress Scores."
 
- econ_raw
+[ ] Calculate Rent-to-Income Ratio: Create a script that pulls the two variables and divides them.
 
- econ_metrics
+[ ] Write to econ_metrics: Store these calculated ratios back in the database.
 
- household_stress_index
+[ ] Index Creation: Normalize the data (0-100 scale) and store in household_stress_index.
 
- agent_summaries
+[ ] Agent Summaries: Generate a high-level "Jacksonville North" vs. "Jacksonville South" summary.
 
- You can run:
+PHASE 3: SHINY DASHBOARD (The Visuals)
+Goal: Make it useful for a human.
 
-SELECT * FROM econ_raw;
+[ ] App Layout: Create the ui.R (Sidebar for counties, main panel for charts).
 
+[ ] Server Logic: Write server.R to query the database based on user selection.
 
-📌 Stop here until all boxes are checked.
+[ ] Visualization: Build a Plotly or ggplot graph showing stress trends by region.
 
-☑️ CHECKLIST 2: R → PostgreSQL Connection
+[ ] Map (V2 Target): Integrating a leaflet map of Jacksonville.
 
-Goal: R can write to and read from Postgres.
+💡 Technical Notes for Next Session
+Granularity Note: The current script uses County-level data (Duval, Clay, Nassau, St. Johns). To see neighborhood-level "pockets," we will need to change geography = "county" to geography = "tract" in the future.
 
- Install R packages:
+The + Symbol: If the R console shows a +, press ESC to reset it.
 
-DBI
+Variable Names: * B19013_001 = Median Household Income
 
-RPostgres
-
-tidycensus
-
-tidyverse
-
- Create a DB connection in R
-
- Test insert into econ_raw
-
- Test select from econ_raw
-
-If this fails, nothing else matters yet.
-
-☑️ CHECKLIST 3: ACS Data Ingestion (Rent & Income)
-
-Goal: Get real Jacksonville data into Postgres.
-
- Register Census API key
-
- Pull ACS data for:
-
-Duval
-
-Clay
-
-Nassau
-
-St. Johns
-
- Variables:
-
-Median rent
-
-Median household income
-
-Number of households
-
- Insert raw values into econ_raw
-
-📌 Raw means no math yet.
-
-☑️ CHECKLIST 4: Metric Calculation (Rent Burden)
-
-Goal: Turn raw data into a defensible metric.
-
- Calculate rent-to-income ratio per county
-
- Apply household-weighted metro aggregation
-
- Store result in econ_metrics
-
- Confirm values look sane (no negatives, no 10x spikes)
-
-☑️ CHECKLIST 5: Stress Index (v1)
-
-Goal: Produce ONE number per month.
-
- Normalize metric (z-score or percentile)
-
- Apply weight (35%)
-
- Compute stress score
-
- Assign stress level:
-
-Low
-
-Moderate
-
-High
-
-Severe
-
- Insert into household_stress_index
-
-☑️ CHECKLIST 6: First Agent Run (No UI)
-
-Goal: Generate a human explanation.
-
- Pull latest stress score from Postgres
-
- Pull last month’s score
-
- Build structured input
-
- Generate explanation with LLM
-
- Save output in agent_summaries
-
-📌 If this works, you have an agentic system.
-
-☑️ CHECKLIST 7: Minimal Shiny UI
-
-Goal: See it working.
-
- Line chart: stress score over time
-
- Text block: agent summary
-
- Dropdown: date selection (optional)
-
-No filters. No polish.
-
-🧠 How to Use This Checklist
-
-Complete one checklist at a time
-
-Do not move forward until current checklist is fully checked
-
-If something breaks:
-
-Roll back
-
-Fix
-
-Continue
-
-This is how production systems are built.
-
-What I’ll do next (you choose)
-
-Reply with one of these:
-
-“Checklist 1 — help me verify Postgres”
-
-“Checklist 2 — show me the R connection code”
-
-“Checklist 3 — pull ACS data step by step”
+B25064_001 = Median Gross Rent
