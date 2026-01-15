@@ -1,0 +1,37 @@
+# 📜 CONSTITUTIONAL AMENDMENT: THE EXPANSION CODEX
+Status: LEGAL MANDATE FOR SYSTEM EVOLUTION
+Scope: Multi-Factor Integration & Agentic Maturity
+________________________________________
+## 🏛️ ARTICLE VII: THE TAXONOMY OF ECONOMIC FACTORS
+The framework shall expand to address the following primary questions in order of priority. Each factor must be developed as a standalone module within the /scripts directory to ensure modularity and prevent system sprawl1111.
+Priority	Economic Question	Primary Signals (Tier 1 & 2)
+01	Household Stress	Rent-to-income, credit card balances, delinquencies, and inflation-adjusted wages2222.
+02	Housing Health	Price-to-wage growth, mortgage rates, inventory levels, and days on market3.
+03	Labor Vitality	Unemployment vs. Job Openings, industry-specific wage shifts, and labor participation rates.
+04	Macro Stability	CPI (Inflation) trends, local GDP growth, and new business starts4.
+________________________________________
+## 🧩 ARTICLE VIII: STANDARDS FOR MODULAR EXPANSION
+•	Section 8.01: Factor Isolation: Every new factor must possess its own dedicated ingestion (01_ingest_...) and transformation (02_trans_...) script to prevent cross-contamination and maintain a clean audit trail5.
+•	Section 8.02: The Equalization Rule: Metrics must be population-weighted at the MSA level6. This ensures that the "Jacksonville Metro" score is a true aggregate and is not skewed by outlier data from a single high-population county like Duval.
+•	Section 8.03: Cross-Factor Correlation: Upon the completion of two or more factors, the system shall trigger a Synthesis Agent. This agent’s mandate is to analyze inter-factor interactions (e.g., "How does Labor Vitality (Factor 03) impact Household Stress (Factor 01)?").
+________________________________________
+## 🤖 ARTICLE IX: PHASING OF AGENTIC DEPTH
+Expansion is defined not merely by data volume, but by "Intellectual Maturity." Agents must be deployed in the following strict chronological order7:
+Phase 1: The Explainer (Current)
+•	Mandate: Translates deterministic data into plain-English, human-economist summaries8888.
+•	Constraint: Must not "think" or hallucinate; it strictly explains results9.
+Phase 2: The Skeptic (Skeptical Economist)
+•	Mandate: Designed to challenge the Explainer's findings, identify statistical anomalies, and mitigate AI hallucinations10101010.
+Phase 3: The Sentinel (Alert Agent)
+•	Mandate: An automated monitoring agent that triggers notifications when a material economic change (e.g., a >5% shift in a metric) is detected11.
+Phase 4: The Strategist (Scenario Agent)
+•	Mandate: Conducts "What if?" modeling to forecast impacts (e.g., "If interest rates drop 1%, what is the projected impact on Housing Health?")12.
+________________________________________
+## 🛡️ ARTICLE X: QUALITY ASSURANCE & AUDIT
+•	Section 10.01: Regression Testing: The integration of a new factor (e.g., Factor 02) shall not break the automation, SQL integrity, or agent logic of existing factors (e.g., Factor 01)13.
+•	Section 10.02: Memory Continuity: All agents must write their narratives and findings to a central agent_memory table in PostgreSQL14. This ensures the AI maintains historical context and "remembers" trends across all subjects over time15151515.
+________________________________________
+NEXT CONCRETE ACTION
+To operationalize this Codex, we must create the Master Config File. This file acts as the "DNA" of the project, allowing any AI Agent to "see" the full roadmap and naming conventions every time it generates code.
+Shall I generate the docs/MASTER_ROADMAP.md and the 00_infra_master_config.R files to formalize these Articles?
+
