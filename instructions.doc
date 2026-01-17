@@ -1,0 +1,244 @@
+Do not start with:
+
+“All economic conditions”
+
+Multiple dashboards
+
+Multiple agents
+
+Fancy UI
+
+That’s how good ideas die.
+
+You need one narrow economic question, one data pipeline, one agent loop.
+
+Step 1 — Pick ONE Economic Question (this week)
+
+Your app should answer one question better than anyone else.
+
+Good starter questions (choose ONE):
+
+Option A (Strongest for you)
+
+“What is the real economic stress on households right now?”
+
+Signals:
+
+Rent vs income
+
+Credit card balances
+
+Delinquencies
+
+Inflation-adjusted wages
+
+Housing affordability
+
+Why this fits you:
+
+Data-heavy
+
+Narrative-driven
+
+Perfect for agent summaries
+
+Strong freelance / consulting value
+
+Option B
+
+“Is the housing market actually healthy in my metro area?”
+
+Signals:
+
+Price vs wage growth
+
+Mortgage rates
+
+Inventory
+
+Days on market
+
+Delinquencies / foreclosures
+
+You’ve already leaned this direction before — this is a natural continuation.
+
+Option C
+
+“Are we entering a recession — yes or no?”
+
+Harder, but very agent-friendly.
+
+👉 Do not proceed until you pick ONE.
+Everything else depends on it.
+
+Step 2 — Define Your FIRST Agent (not many)
+
+Agentic ≠ many agents
+Agentic = loop + memory + decision-making
+
+Your first agent should do ONE thing:
+
+Ingest data → analyze → explain like a human economist
+
+Example:
+
+“Economic Conditions Analyst Agent”
+
+Responsibilities:
+
+Pull latest data
+
+Compare vs historical baseline
+
+Flag anomalies
+
+Write a plain-English summary
+
+No tools yet. No web UI yet.
+
+Step 3 — Data Pipeline First (before UI)
+
+This is where your stack shines.
+
+Canonical pipeline
+Raw Data
+↓
+PostgreSQL
+↓
+Python / R Analysis
+↓
+Agent Summary
+↓
+UI
+
+Data sources to start with (pick 2 max):
+
+FRED (macro)
+
+Census / ACS (income, housing)
+
+BLS (CPI, wages)
+
+Use:
+
+R → ingestion & cleaning (tidycensus, tidyverse)
+
+PostgreSQL → single source of truth
+
+Python → orchestration + agents
+
+📌 Do NOT mix ingestion logic into the agent.
+
+Step 4 — Minimal Agent Architecture (important)
+
+You do NOT need LangChain chaos.
+
+Simple, clean agent loop:
+1. Fetch latest data snapshot
+2. Run deterministic analysis
+3. Generate structured facts
+4. LLM turns facts → narrative
+5. Store output + timestamp
+
+
+Your agent:
+
+Does not “think”
+
+Explains results
+
+Keeps historical memory
+
+Memory = PostgreSQL table.
+
+Step 5 — First UI (keep it boring)
+Best starting UI for your stack:
+
+Shiny → embedded summaries
+
+Why:
+
+You already know R
+
+Fast iteration
+
+Great for econ dashboards
+
+Can call Python via API later
+
+Initial UI:
+
+1 dashboard
+
+1 chart
+
+1 agent-generated summary
+
+That’s it.
+
+Step 6 — Where Cursor & UV Fit
+Cursor
+
+Write analysis faster
+
+Refactor pipelines
+
+Generate test cases
+
+Document models
+
+UV
+
+Lock Python deps early
+
+Reproducibility matters for economics apps
+
+You’re already ahead by using UV.
+
+Step 7 — Only THEN add “Agentic” Depth
+
+Once your first agent works:
+
+Add:
+
+Second agent: “Skeptical Economist”
+
+Challenges assumptions
+
+Alert agent:
+
+“Something changed materially this week”
+
+Scenario agent:
+
+“If rates drop 1%, what breaks?”
+
+Each agent:
+
+Same data
+
+Different mandate
+
+No shared hallucinations
+
+What This Becomes (realistically)
+
+If done right, this turns into:
+
+A credible economic intelligence app
+
+A freelance product
+
+A consulting demo
+
+A portfolio anchor
+
+Not a toy dashboard.
+
+Your Next 3 Concrete Actions (do these)
+
+Pick the ONE economic question
+
+List 2 datasets only
+
+Design the first agent’s job in one sentence

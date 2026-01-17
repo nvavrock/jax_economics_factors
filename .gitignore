@@ -5,4 +5,7 @@
 test_sql.R
 .Renviron
 zMANIFEST.md
-zEXPANSION_CODEX.md
+zEXPANSION_CODEX.md.Renviron
+.Rproj.user
+.env
+.DS_Store

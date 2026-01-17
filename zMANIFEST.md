@@ -21,7 +21,7 @@ Section 1.03: The Scalability Mandate:
 
 Geographic Agnosticism: All code must be engineered for universal portability.
 
-Prohibition of Hardcoding: Hardcoding specific city names or FIPS codes in core logic is a Constitutional Violation.
+Prohibition of Hardcoding: Hardcoding specific city names or FIPS codes in core logic is a Manifest Violation.
 
 Variable Injection: All geography must be passed as variables (e.g., TARGET_MSA) at the script header.
 
@@ -30,7 +30,7 @@ Section 2.01: Directory Structure:
 
 /scripts: All executable logic and pipeline files.
 
-/docs: Constitutions, Manifestos, and Data Dictionaries.
+/docs: Constitutions, Manifesto, and Data Dictionaries.
 
 /modules: Specialized factor sub-folders (e.g., /census, /housing).
 
